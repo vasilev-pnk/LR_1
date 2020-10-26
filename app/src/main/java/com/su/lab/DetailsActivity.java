@@ -49,14 +49,17 @@ public class DetailsActivity extends Activity implements LoaderManager.LoaderCal
         /*
          * TODO #3 Добавить обработчик клика и добавить логику перехода в системное приложение телефона
          */
-//        TextView phoneNumber = findViewById(R.id.contacts_phone_number);
-//        phoneNumber.setText(number);
-//        phoneNumber.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // phone click logic
-//            }
-//        });
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:" + number));
+        startActivity(intent);
+        TextView phoneNumber = findViewById(R.id.contacts_phone_number);
+        phoneNumber.setText(number);
+        phoneNumber.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // phone click logic
+            }
+        });
     }
 
     @Override
